@@ -1,5 +1,6 @@
 package com.ericsonmontero.moviewtechnicaltest.data.models
 
+import com.ericsonmontero.moviewtechnicaltest.data.local.models.MovieEntity
 import com.ericsonmontero.moviewtechnicaltest.domain.models.MovieModel
 
 data class Item(
@@ -31,5 +32,16 @@ fun Item.toDomain():MovieModel {
         releaseDate = releaseState,
         plot = plot,
         stars = starList.map { it.name }
+    )
+}
+
+fun Item.toMovieEntity(): MovieEntity {
+    return MovieEntity(
+        uuid = id,
+        title = title,
+        image = image,
+        plot = plot,
+        stars = stars,
+        releaseDate = releaseState
     )
 }
