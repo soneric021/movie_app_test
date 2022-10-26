@@ -7,7 +7,7 @@ import com.ericsonmontero.moviewtechnicaltest.domain.models.MovieModel
 import retrofit2.Response
 
 interface MovieRepository {
-    fun getMoviesList(): Response<MovieResponse>
-    fun getMoviesListFromDb() : List<MovieEntity>
-    fun saveMovies(items:List<Item>)
+    suspend fun getMoviesList(): Response<MovieResponse>
+    suspend fun getMoviesListFromDb() : List<MovieEntity>
+    suspend fun saveMovies(items:List<Item>)
 }

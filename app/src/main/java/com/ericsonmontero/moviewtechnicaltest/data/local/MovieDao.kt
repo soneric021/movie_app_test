@@ -9,11 +9,11 @@ import com.ericsonmontero.moviewtechnicaltest.data.local.models.MovieEntity
 interface MovieDao {
 
     @Query("SELECT * from tb_movie")
-    fun getMovies() : List<MovieEntity>
+    suspend fun getMovies() : List<MovieEntity>
 
     @Insert
-    fun insertMovies( movieEntity: List<MovieEntity>)
+    suspend fun insertMovies( movieEntity: List<MovieEntity>)
 
     @Query("DELETE FROM tb_movie")
-    fun deleteMovies()
+    suspend fun deleteMovies()
 }

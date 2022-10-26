@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface MovieApi {
 
     @GET("movies.json?key=cb03b960")
-    fun getMoviesList(): Response<MovieResponse>
+    suspend fun getMoviesList(): Response<MovieResponse>
 }
