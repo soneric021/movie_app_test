@@ -48,10 +48,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 viewModel.movies.collect{
                     when(it){
                         is UiState.Error -> {
+                            binding.tvNoData.visibility = View.VISIBLE
                             Snackbar.make(binding.root, it.exception, Snackbar.LENGTH_LONG).show()
                         }
                         is UiState.Success -> {
+                            binding.progressCircular.visibility = View.GONE
+                            binding.rvMovies.visibility = View.VISIBLE
                             movieAdapter.setData(it.news)
+                        }
+                        is UiState.ShowProgress -> {
+                           if(it.isShowing){
+                               binding.progressCircular.visibility = View.VISIBLE
+                           }else{
+                               binding.progressCircular.visibility = View.GONE
+                           }
                         }
                     }
                 }

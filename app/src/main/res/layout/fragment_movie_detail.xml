@@ -77,45 +77,9 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/img_star"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView"
-            android:contentDescription="@string/popularity_image"/>
 
-        <ImageView
-            android:id="@+id/img_popularity"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView"
-            android:contentDescription="@string/image_popularity"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_vote"
-            android:layout_marginTop="8dp"
-            android:text="@string/vote"
-            app:layout_constraintEnd_toEndOf="@+id/img_star"
-            app:layout_constraintStart_toStartOf="@+id/img_star"
-            app:layout_constraintTop_toBottomOf="@+id/img_star" />
 
-        <TextView
-            android:id="@+id/tv_popularity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/popularity"
-            app:layout_constraintEnd_toEndOf="@+id/img_popularity"
-            app:layout_constraintStart_toStartOf="@+id/img_popularity"
-            app:layout_constraintTop_toBottomOf="@+id/img_popularity" />
 
         <View
             android:id="@+id/view"
@@ -127,7 +91,7 @@
             android:background="@android:color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_vote" />
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
             android:id="@+id/tv_description"

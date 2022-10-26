@@ -21,20 +21,11 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Singleton
-    @Provides
-    fun provideHttpLoginInterceptor(): HttpLoggingInterceptor =
-        HttpLoggingInterceptor().apply {
-            if(BuildConfig.DEBUG){
-                level = HttpLoggingInterceptor.Level.BODY
-            }
-        }
 
     @Singleton
     @Provides
-    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+    fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
             .build()
 
     @Singleton

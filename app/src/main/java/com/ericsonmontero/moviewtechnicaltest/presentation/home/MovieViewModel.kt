@@ -28,15 +28,17 @@ class MovieViewModel @Inject constructor(private val getMoviesUseCase: GetMovies
 
     private fun getMovies(){
         viewModelScope.launch {
-            getMoviesUseCase.invoke().collect {
+            getMoviesUseCase.invoke(true).collect {
                 when(it){
                     is Resource.Error -> {
+                        _movies.emit(UiState.ShowProgress(false))
                         _movies.emit(UiState.Error(it.exception))
                     }
                     Resource.Loading -> {
-
+                        _movies.emit(UiState.ShowProgress(true))
                     }
                     is Resource.Success -> {
+                        _movies.emit(UiState.ShowProgress(false))
                         _movies.emit(UiState.Success(it.data ?: emptyList()))
                     }
                 }
@@ -47,4 +49,5 @@ class MovieViewModel @Inject constructor(private val getMoviesUseCase: GetMovies
 sealed class UiState {
     data class Success(val news: List<MovieModel>): UiState()
     data class Error(val exception: String): UiState()
+    data class ShowProgress(val isShowing:Boolean) : UiState()
 }
