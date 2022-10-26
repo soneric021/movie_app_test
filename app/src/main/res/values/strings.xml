@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Moview Technical Test</string>
+    <string name="popularity">popularidad</string>
+    <string name="vote">votar</string>
+    <string name="image_popularity">image popularity</string>
+    <string name="popularity_image">popularity</string>
+    <string name="poster_movie_image">Poster movie image</string>
+    <string name="cast">Cast</string>
 </resources>
