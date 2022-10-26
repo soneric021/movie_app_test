@@ -31,7 +31,8 @@ fun Item.toDomain():MovieModel {
         image = image,
         releaseDate = releaseState,
         plot = plot,
-        stars = starList.map { it.name }
+        stars = starList.map { it.name },
+        id = id
     )
 }
 

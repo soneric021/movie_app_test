@@ -6,6 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class MovieModel(
+    val id:String,
     val title:String,
     val releaseDate:String,
     val image:String,

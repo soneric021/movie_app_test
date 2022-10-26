@@ -21,6 +21,7 @@ fun MovieEntity.toDomain() : MovieModel{
         releaseDate = releaseDate,
         image = image,
         plot = plot,
-        stars = stars.split(",")
+        stars = stars.split(","),
+        id = uuid
     )
 }
