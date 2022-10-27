@@ -30,22 +30,11 @@ class MainActivity : AppCompatActivity() {
             ) { permission ->
 
                 when{
-                    permission.getOrDefault(Manifest.permission.CAMERA, false) -> {
-
-                    }
-                    permission.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-
-                    }
-                    permission.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-
-                    }
-                    permission.getOrDefault(Manifest.permission.WRITE_EXTERNAL_STORAGE, false) -> {
-
-                    }
-
-                    else -> {
-
-                    }
+                    permission.getOrDefault(Manifest.permission.CAMERA, false) -> {}
+                    permission.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {}
+                    permission.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {}
+                    permission.getOrDefault(Manifest.permission.WRITE_EXTERNAL_STORAGE, false) -> {}
+                    else -> {}
                 }
             }
 

@@ -26,7 +26,7 @@ class MovieViewModel @Inject constructor(private val getMoviesUseCase: GetMovies
         getMovies()
     }
 
-    private fun getMovies(){
+    fun getMovies(){
         viewModelScope.launch {
             _movies.emit(UiState.ShowProgress(true))
             getMoviesUseCase.invoke(true).collect {
@@ -44,6 +44,7 @@ class MovieViewModel @Inject constructor(private val getMoviesUseCase: GetMovies
         }
     }
 }
+
 sealed class UiState {
     data class Success(val news: List<MovieModel>): UiState()
     data class Error(val exception: String): UiState()
