@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Moview Technical Test</string>
+    <string name="app_name">Movie App</string>
+    <string name="popularity">popularidad</string>
+    <string name="vote">votar</string>
+    <string name="image_popularity">image popularity</string>
+    <string name="popularity_image">popularity</string>
+    <string name="poster_movie_image">Poster movie image</string>
+    <string name="cast">Cast</string>
+    <string name="no_movies_available">No peliculas disponibles.</string>
+    <string name="release">%1$s ⌚%2$shr</string>
+    <string name="cast_values">Cast: %1$s</string>
+    <string name="imdb">IMDB %1$s</string>
 </resources>
