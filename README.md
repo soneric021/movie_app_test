@@ -9,6 +9,7 @@ Simple app to list movies and show the details
 - Require permissions to GPS, CAMERA and SAVE DATA
 - Splash Screen
 - Online and Offline
+- branches step by step of my development
 
 
 https://user-images.githubusercontent.com/18105920/198277512-0e1aa9bf-cde1-405d-b190-9585321890fb.mp4
