@@ -43,23 +43,34 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             findNavController().navigate(HomeFragmentDirections.actionToFragmentMovieDetail(it))
         }
         setupRecyclerView()
+
+        binding.refreshLayout.setOnRefreshListener {
+            viewModel.getMovies()
+            binding.progressCircular.visibility = View.VISIBLE
+        }
+
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.movies.collect{
                     when(it){
                         is UiState.Error -> {
                             binding.tvNoData.visibility = View.VISIBLE
+
                             Snackbar.make(binding.root, it.exception, Snackbar.LENGTH_LONG).show()
                         }
                         is UiState.Success -> {
                             binding.progressCircular.visibility = View.GONE
+                            binding.refreshLayout.isRefreshing = false
                             binding.rvMovies.visibility = View.VISIBLE
                             movieAdapter.setData(it.news)
                         }
                         is UiState.ShowProgress -> {
                            if(it.isShowing){
+                               binding.tvNoData.visibility = View.GONE
+                               binding.refreshLayout.isRefreshing = true
                                binding.progressCircular.visibility = View.VISIBLE
                            }else{
+                               binding.refreshLayout.isRefreshing = false
                                binding.progressCircular.visibility = View.GONE
                            }
                         }
