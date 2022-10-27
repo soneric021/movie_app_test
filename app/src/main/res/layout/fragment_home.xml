@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/rv_movies"
-    android:visibility="gone"
-    />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_movies"
+        android:visibility="gone"
+        />
 
     <TextView
         android:id="@+id/tv_no_data"
@@ -16,6 +17,7 @@
         android:layout_height="wrap_content"
         android:text="@string/no_movies_available"
         android:visibility="gone"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,6 +28,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/progress_circular"
         android:indeterminate="true"
+        app:indicatorColor="@color/gold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

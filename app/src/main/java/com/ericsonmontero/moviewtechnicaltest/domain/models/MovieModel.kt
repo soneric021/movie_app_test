@@ -11,5 +11,8 @@ data class MovieModel(
     val releaseDate:String,
     val image:String,
     val plot:String,
-    val stars:List<String>
+    val stars:List<String>,
+    val genres:String,
+    val imdbRating:String,
+    val runtimeMins:String
 ) : Parcelable

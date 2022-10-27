@@ -28,14 +28,12 @@ class MovieViewModel @Inject constructor(private val getMoviesUseCase: GetMovies
 
     private fun getMovies(){
         viewModelScope.launch {
+            _movies.emit(UiState.ShowProgress(true))
             getMoviesUseCase.invoke(true).collect {
                 when(it){
                     is Resource.Error -> {
                         _movies.emit(UiState.ShowProgress(false))
                         _movies.emit(UiState.Error(it.exception))
-                    }
-                    Resource.Loading -> {
-                        _movies.emit(UiState.ShowProgress(true))
                     }
                     is Resource.Success -> {
                         _movies.emit(UiState.ShowProgress(false))

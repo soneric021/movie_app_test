@@ -30,11 +30,15 @@ class MovieRepositoryTest {
             val actual = repository.getMoviesList().body()?.items?.map { it.toDomain() }
 
             val expected =  MovieModel(
+                "tt1649418",
                 "The Gray Man",
                 "22 Jul 2022",
                 "https://m.media-amazon.com/images/M/MV5BOWY4MmFiY2QtMzE1YS00NTg1LWIwOTQtYTI4ZGUzNWIxNTVmXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_UX128_CR0,4,128,176_AL_.jpg",
                 "When the CIA's most skilled operative-whose true identity is known to none-accidentally uncovers dark agency secrets, a psychopathic former colleague puts a bounty on his head, setting off a global manhunt by international assassins.",
-                listOf("Ryan Gosling","Chris Evans","Ana de Armas", "Billy Bob Thornton")
+                listOf("Ryan Gosling","Chris Evans","Ana de Armas", "Billy Bob Thornton"),
+                "Action, Thriller",
+                "6.6",
+                "122"
             )
 
             Truth.assertThat(actual).contains(expected)

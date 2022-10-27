@@ -40,7 +40,7 @@ class MovieDaoTest {
 
     @Test
     fun insertMovies_returnTrue() = runBlocking {
-        val movie = MovieEntity("111", "title", "22 jul 2022", "", "plot", "cal, mark")
+        val movie = MovieEntity("111", "title", "22 jul 2022", "", "plot", "cal, mark","", "", "")
         movieDao.insertMovies(listOf(movie))
 
         val latch = CountDownLatch(1)
@@ -57,8 +57,8 @@ class MovieDaoTest {
 
     @Test
     fun deleteMovies_returnTrue() = runBlocking {
-        val movie = MovieEntity("111", "title", "22 jul 2022", "", "plot", "cal, mark")
-        val movie2 =  MovieEntity("112", "title", "22 jul 2022", "", "plot", "cal, mark")
+        val movie = MovieEntity("111", "title", "22 jul 2022", "", "plot", "cal, mark", "", "", "")
+        val movie2 =  MovieEntity("112", "title", "22 jul 2022", "", "plot", "cal, mark","", "", "")
 
         movieDao.insertMovies(listOf(movie, movie2))
 

@@ -32,7 +32,10 @@ fun Item.toDomain():MovieModel {
         releaseDate = releaseState,
         plot = plot,
         stars = starList.map { it.name },
-        id = id
+        id = id,
+        genres = genres,
+        imdbRating = imDbRating,
+        runtimeMins = runtimeMins
     )
 }
 
@@ -43,6 +46,9 @@ fun Item.toMovieEntity(): MovieEntity {
         image = image,
         plot = plot,
         stars = stars,
-        releaseDate = releaseState
+        releaseDate = releaseState,
+        genres = genres,
+        imdbRating = imDbRating,
+        runtimeMins = runtimeMins
     )
 }

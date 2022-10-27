@@ -8,8 +8,13 @@
     <fragment android:id="@+id/fragmentHome"
         tools:layout="@layout/fragment_home"
         android:name="com.ericsonmontero.moviewtechnicaltest.presentation.home.HomeFragment">
-        <action android:id="@+id/action_to_fragmentMovieDetail"
-            app:destination="@+id/fragmentMovieDetail" />
+        <action
+            android:id="@+id/action_to_fragmentMovieDetail"
+            app:destination="@+id/fragmentMovieDetail"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
 
     <fragment android:id="@+id/fragmentMovieDetail"

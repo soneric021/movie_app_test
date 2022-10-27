@@ -15,7 +15,9 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 class FakeMovieRepository(private val api:MovieApi) : MovieRepository {
+
     private val data:ArrayList<MovieEntity> = arrayListOf()
+
     override suspend fun getMoviesList(): Response<MovieResponse> {
         return api.getMoviesList()
     }
@@ -25,9 +27,10 @@ class FakeMovieRepository(private val api:MovieApi) : MovieRepository {
     }
 
     override suspend fun saveMovies(items: List<Item>) {
+        data.clear()
         data.addAll(items.map { it.toMovieEntity() })
     }
-    companion object{
+    companion object {
         fun getMockFakeRepository(mockWebServer:MockWebServer):FakeMovieRepository {
              val client = OkHttpClient.Builder()
                 .connectTimeout(1, TimeUnit.SECONDS)
@@ -44,7 +47,5 @@ class FakeMovieRepository(private val api:MovieApi) : MovieRepository {
 
             return FakeMovieRepository(api)
         }
-
-
     }
 }

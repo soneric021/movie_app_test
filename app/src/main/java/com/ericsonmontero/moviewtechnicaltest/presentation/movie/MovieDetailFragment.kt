@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.ericsonmontero.moviewtechnicaltest.R
 import com.ericsonmontero.moviewtechnicaltest.databinding.FragmentHomeBinding
 import com.ericsonmontero.moviewtechnicaltest.databinding.FragmentMovieDetailBinding
+import com.ericsonmontero.moviewtechnicaltest.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,11 +32,31 @@ class MovieDetailFragment : Fragment(R.layout.fragment_movie_detail) {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        setupView()
+    }
+
+    private fun setupView() {
         Glide.with(requireContext()).load(navArgs.movie.image).into(binding.blurImage)
-        Glide.with(requireContext()).load(navArgs.movie.image).into(binding.posterImage)
+        Glide.with(requireContext())
+            .load(navArgs.movie.image)
+            .override(500,400)
+            .dontTransform()
+            .into(binding.posterImage)
+
         binding.tvName.text = navArgs.movie.title
-        binding.tvRelease.text = navArgs.movie.releaseDate
+        val runtimeHour = Utils.hoursFromMinuts(navArgs.movie.runtimeMins.toInt())
+        binding.tvReleaseDate.text = getString(R.string.release,navArgs.movie.releaseDate, runtimeHour.toString() )
         binding.tvDescription.text = navArgs.movie.plot
-        binding.tvCast.text = "Cast: ${navArgs.movie.stars.joinToString { "$it" }}"
+        binding.tvCast.text = getString(R.string.cast_values, navArgs.movie.stars.joinToString { "$it" })
+
+        val genres = navArgs.movie.genres.split(",")
+        binding.tvGen1.text = genres[0]
+        if(genres.size > 1){
+            binding.tvGen2.text = genres[1]
+        }else{
+            binding.tvGen2.visibility = View.GONE
+        }
+
+        binding.tvImdb.text  = getString(R.string.imdb, navArgs.movie.imdbRating)
     }
 }

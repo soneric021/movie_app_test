@@ -12,7 +12,10 @@ data class MovieEntity(
     val releaseDate:String,
     val image:String,
     val plot:String,
-    val stars:String
+    val stars:String,
+    val genres:String,
+    val imdbRating:String,
+    val runtimeMins:String
 )
 
 fun MovieEntity.toDomain() : MovieModel{
@@ -22,6 +25,9 @@ fun MovieEntity.toDomain() : MovieModel{
         image = image,
         plot = plot,
         stars = stars.split(","),
-        id = uuid
+        id = uuid,
+        genres = genres,
+        imdbRating = imdbRating,
+        runtimeMins =  runtimeMins
     )
 }

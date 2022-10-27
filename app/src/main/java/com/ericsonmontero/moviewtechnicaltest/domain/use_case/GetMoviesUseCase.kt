@@ -6,6 +6,7 @@ import com.ericsonmontero.moviewtechnicaltest.domain.models.MovieModel
 import com.ericsonmontero.moviewtechnicaltest.domain.models.Resource
 import com.ericsonmontero.moviewtechnicaltest.domain.repository.MovieRepository
 import com.ericsonmontero.moviewtechnicaltest.utils.Utils
+import com.ericsonmontero.moviewtechnicaltest.utils.orderByDateDescending
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -20,27 +21,23 @@ import javax.inject.Inject
 class GetMoviesUseCase @Inject constructor(private val repository: MovieRepository) {
     suspend operator fun invoke(orderByDescending:Boolean): Flow<Resource<List<MovieModel>>> {
         return flow {
-            emit(Resource.Loading)
-
             try{
                 val movies = repository.getMoviesListFromDb()
 
-                val isDbEmpty = movies.isEmpty()
-
-                if(!isDbEmpty) {
-                    val localMovies = if(orderByDescending) movies.map { it.toDomain() }.sortedByDescending { Utils.parseDate(it.releaseDate) } else  movies.map { it.toDomain() }
+                if(movies.isNotEmpty()) {
+                    val localMovies = movies.map { it.toDomain() }.orderByDateDescending(orderByDescending)
                     emit(Resource.Success(localMovies))
                     return@flow
                 }
 
                 val moviesResponse = repository.getMoviesList()
-                if(moviesResponse.isSuccessful){
+                if(moviesResponse.isSuccessful) {
                     moviesResponse.body()?.let { response ->
-                        val moviesRemote = if(orderByDescending) response.items.map { it.toDomain() }.sortedByDescending { Utils.parseDate(it.releaseDate) } else response.items.map { it.toDomain() }
+                        val moviesRemote = response.items.map { it.toDomain() }.orderByDateDescending(orderByDescending)
                         emit(Resource.Success(moviesRemote))
                         repository.saveMovies(response.items)
                     }
-                }else{
+                } else {
                     emit(Resource.Error("Hubo un error al intentar cargar las peliculas."))
                 }
             }catch (ex:HttpException){
@@ -48,9 +45,7 @@ class GetMoviesUseCase @Inject constructor(private val repository: MovieReposito
                 emit(Resource.Error("Hubo un error al intentar cargar las peliculas."))
             }catch (ex:IOException){
                 ex.printStackTrace()
-                emit(Resource.Error("Hubo un error al intentar cargar las peliculas."))
-            }catch (ex:Exception){
-
+                emit(Resource.Error("Hubo un error al conectarse con el servidor"))
             }
 
         }
