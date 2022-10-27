@@ -11,7 +11,7 @@ Simple app to list movies and show the details
 - Online and Offline
 - branches step by step of my development
 
-##Features
+Features
 
 - when the app launch the first time and the device has internet, save all items to allow use offline
 - photos are cached by glide
