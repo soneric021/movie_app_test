@@ -18,9 +18,9 @@ Features
 - all the information at the end is using offline to not consume ethernet
 
 
-https://user-images.githubusercontent.com/18105920/198277512-0e1aa9bf-cde1-405d-b190-9585321890fb.mp4
+PREVIEW
 
-![ezgif-5-a8c1ab5cbb](https://user-images.githubusercontent.com/18105920/198278378-8a76186f-45a1-4cd6-b617-f03ec0d7c14c.gif)
-![ezgif-5-0ab75a05fe](https://user-images.githubusercontent.com/18105920/198278387-13b5f8d4-55a5-4a8f-a375-4afbf6afd8d8.gif)
-![ezgif-5-6f54ab1cf5](https://user-images.githubusercontent.com/18105920/198278393-af7e3533-a551-49c4-904f-830cdfd1b172.gif)
-![ezgif-5-3d450ad06a](https://user-images.githubusercontent.com/18105920/198278532-0cb42070-1e16-4ac2-9a5e-8be2f70686f2.gif)
+![ezgif-2-a21db861c4](https://user-images.githubusercontent.com/18105920/198335525-f9c95dc9-b7a9-4a10-8231-0b224a4d8d77.gif)
+![ezgif-2-705d68a991](https://user-images.githubusercontent.com/18105920/198335531-f9eb714f-d2fa-4dc6-8068-b71bbebdbd11.gif)
+![ezgif-2-731f496d6e](https://user-images.githubusercontent.com/18105920/198335546-cbfa6c4d-63f2-4297-b36e-5d887c7f97f6.gif)
+![ezgif-2-822e581b26](https://user-images.githubusercontent.com/18105920/198335778-e21cd790-4160-4d84-a053-b4c175622b7d.gif)
